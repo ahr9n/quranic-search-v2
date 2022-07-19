@@ -1,0 +1,98 @@
+.index-form{
+    display: grid;
+    margin: auto;
+    padding: 10px;
+    height: 100px;
+    width: 500px;
+    /*border: 2px solid #222;*/
+}
+.index-input{
+    padding: 10px;
+    border: 2px solid cadetblue;
+
+    font-family: 'Amiri';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 42px;
+
+    color: #A7A7A7;
+ 
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 740px;
+    height: 67px;
+    
+    left: 50%;
+    top: 500%;
+    transform: translate(-50%, -50%);
+
+    background: #FFFFFF;
+    border: 1px solid #191C4C;
+    border-radius: 19px;
+}
+.index-lexical, .index-semantic{
+    padding: 10px;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: 'Amiri';
+    font-style: normal;
+    font-size: 18px;
+    /* center */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "a b"; */
+    /* justify-items: center;
+    align-items: center; */
+    border: 2px solid cadetblue;
+    background-color: cadetblue;
+    color: white;
+    /* cursor: pointer; */
+
+    /* width: 100%; */
+    /* max-width: 100%; */
+    text-align: center;
+    
+    position: absolute;
+    width: 108px;
+    height: 55px;
+}
+.index-lexical{
+    margin-left: 275px;
+    margin-right: 100px;
+    
+    /* left: 1000px; */
+    top: 650px; 
+    
+    background: #191C4C;
+    border-radius: 15px;
+}
+.index-semantic{
+    margin-left: 100px;
+    margin-right: 250px;
+    
+    /* left: 825px; */
+    top: 650px; 
+    
+    background: #191C4C;
+    border-radius: 15px;
+}
+.index-logo{    
+    width: 150%;
+    height: 140%;
+
+    position: absolute;
+    width: 257px;
+    height: 251px;
+    
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, 50%);
+
+    /* left: 770px;
+    top: 134px; */
+    
+    mix-blend-mode: multiply;   
+}

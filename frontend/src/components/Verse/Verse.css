@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Amiri Quran';
+    src: url(/public/fonts/amiri/AmiriQuranColored.ttf) format('truetype');
+}
+.verse{
+    padding: 0px 20px 0px 20px;
+
+    text-align: right;
+    direction: rtl;
+    font-family: "Amiri Quran";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+
+}
+#type{
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
+
+    font-family: "Amiri";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+}
+.verse span{
+    color: dimgrey;
+}
+.line{
+    margin-left: 20px;
+    margin-right: 20px;
+}

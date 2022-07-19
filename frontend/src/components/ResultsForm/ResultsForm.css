@@ -1,0 +1,112 @@
+.results-form{
+    display: grid;
+    padding: 41px 0px 100px 0px;
+    /* height: 100px;
+    width: 5000px; */
+    /* border: 2px solid #222; */
+}
+
+@font-face {
+    font-family: 'Amiri';
+    src: url(/public/fonts/amiri/Amiri-Regular.ttf) format('truetype');
+}
+
+.results-input{
+    padding: 10px 20px 10px 20px;
+    border: 2px solid cadetblue;
+
+    font-family: 'Amiri';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 42px;
+
+    color: #A7A7A7;
+ 
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 67%;
+    height: 70px;
+    
+    left: 400px;
+
+    background: #FFFFFF;
+    border: 1px solid #191C4C;
+    border-radius: 15px;
+}
+
+.results-lexical, .results-semantic{
+    padding: 10px;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-family: 'Amiri';
+    font-style: normal;
+    /* center */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "a b";
+    justify-items: center;
+    align-items: center;
+    border: 2px solid cadetblue;
+    background-color: cadetblue;
+    color: white;
+    /* cursor: pointer; */
+
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+.results-lexical{
+    position: absolute;
+    width: 108px;
+    height: 50px;
+
+    /* margin-left: 275px;
+    margin-right: 100px; */
+    
+    left: 240px;
+    top: 42px;
+    
+    background: #191C4C;
+    border-radius: 15px;
+}
+
+.results-semantic{
+    position: absolute;
+    width: 108px;
+    height: 50px;
+
+    /* margin-left: 100px;
+    margin-right: 250px; */
+    
+    left: 90px;
+    top: 42px;
+    
+    background: #191C4C;
+    border-radius: 15px;
+}
+
+
+.results-logo{
+    margin: 60px 10px;
+
+    position: absolute;
+
+    /* left: 1250px; */
+    top: 14px;
+
+    position: absolute;
+    width: 120px;
+    height: 110px;
+    
+    left: 93.5%;
+    transform: translate(-50%, -50%);
+
+    /* left: 770px;
+    top: 134px; */
+    
+    mix-blend-mode: multiply;   
+}

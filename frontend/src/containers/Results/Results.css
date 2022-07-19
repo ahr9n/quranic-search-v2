@@ -1,0 +1,9 @@
+body {
+    position: relative;    
+    background: #FFFCF6;
+}
+
+@font-face {
+    font-family: 'Amiri';
+    src: url(/public/fonts/amiri/Amiri-Regular.ttf) format('truetype');
+}

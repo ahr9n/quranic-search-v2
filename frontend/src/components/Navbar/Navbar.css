@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Reem Kufi Ink';
+    src: url(/public/fonts/kufi/ReemKufiInk-Regular.otf) format('opentype');
+}
+
+.ask-logo{
+    text-decoration: none;
+
+    position: absolute;
+    width: 245px;
+    height: 66px;
+
+    right: 40px;
+    top: 25px;
+    
+    font-family: 'Reem Kufi Ink';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 57px;
+    text-align: center;
+    
+    color: #191C4C;    
+}
+
+@font-face {
+    font-family: 'Amiri';
+    src: url(/public/fonts/amiri/Amiri-Regular.ttf) format('truetype');
+}
+
+.bookmarks, .about{
+    position: absolute;
+    height: 33px;
+    top: 34px;
+    text-decoration: none;
+
+    font-family: 'Amiri';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+
+    color: #6B6B6B;
+}
+
+.bookmarks{
+    width: 130.78px;
+    left: 140.22px;
+}
+
+.about{
+    width: 73.33px;
+    left: 40px;
+}
