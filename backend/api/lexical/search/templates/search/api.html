@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>API DOCS</title>
+        <link href="/../static/css/style.css" rel="stylesheet">
+        <link href="/../static/img/quran.png" rel="icon" type="image/png" >
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <a href="/api/lexical/all-verses">https://ahr9n-quran-api.herokuapp.com/api/all-verses</a>
+                <p>Returns all verses.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/search-word/محمد">https://ahr9n-quran-api.herokuapp.com/api/search-word/{words}</a>
+                <p>Takes a string to return all verses, containing this string.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/get-surah/1">https://ahr9n-quran-api.herokuapp.com/api/get-surah/{surah_id}</a>
+                <p>Takes Surah number, to return all verses in this Surah. Notice that Surah numbers is between 1 and 114.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/get-verse/1/1">https://ahr9n-quran-api.herokuapp.com/api/get-verse/{surah_id}/{verse_id}</a>
+                <p>Returns a specific verse by taking surah number and verse number.</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+backend/api/lexical/api/__pycache__/
+backend/api/lexical/search/__pycache__/
+backend/api/lexical/search/migrations/__pycache__/
+
+backend/api/semantic/data/external/quran_english_translations.txt
+backend/api/semantic/data/external/quran-simple-clean.txt
+backend/api/semantic/data/external/quran-simple-min.txt
+backend/api/semantic/data/external/quran-simple.txt
+backend/api/semantic/data/external/quran.txt
+backend/api/semantic/data/processed/ksucca_full_cbow.bin
+backend/api/semantic/references/full_grams_cbow_100_twitter.mdl
+backend/api/semantic/references/full_grams_cbow_100_twitter.mdl.trainables.syn1neg.npy
+backend/api/semantic/references/full_grams_cbow_100_twitter.mdl.wv.vectors.npy
+
+# frontend
+# dependencies
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
+
+# testing
+frontend/coverage
+
+# production
+frontend/build
+
+# misc
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*

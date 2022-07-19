@@ -1,0 +1,20 @@
+/* style for body */
+body {
+    position: relative;    
+    background: #FFFCF6;
+}
+
+/* styles for API DOCS */
+
+.container{
+    padding: 10px;
+    background-color: #EEE;
+}
+.container .row{
+    padding: 10px;
+    border: 1px solid #222;
+    margin-bottom: 3px;
+}
+.container .row p{
+    padding-left: 10px;
+}
