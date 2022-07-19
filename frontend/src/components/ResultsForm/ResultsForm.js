@@ -58,7 +58,7 @@ class ResultsForm extends Component {
     return(
         <div>
             <form class="results-form">
-                <img class="results-logo" src="/images/quran-logo.png" />
+                <img class="results-logo" src="/images/quran-logo.png" alt="Quran Logo" />
                 <input class="results-input" onChange={this.handleChange} dir="rtl" type="text" name="input" value={this.state.value} placeholder='فيم تريد أن تبحث؟' />
                             
                 <input class="results-lexical" onClick={this.handleSubmitLex} type="submit" value="ابحــث باللفظ" name='lexical' />

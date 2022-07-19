@@ -61,7 +61,7 @@ class BasicHomeForm extends Component {
         return (
             <div>
                 <form class="index-form" >
-                    <img class="index-logo" src="/images/quran-logo.png" />
+                    <img class="index-logo" src="/images/quran-logo.png" alt="Quran Logo" />
                     <input class="index-input" onChange={this.handleChange} dir="rtl" type="text" name="input" value={this.state.value} placeholder='فيم تريد أن تبحث؟' />
                                
                     <input class="index-lexical" onClick={this.handleSubmitLex} type="submit" value="ابحــث باللفظ" name='lexical' />
