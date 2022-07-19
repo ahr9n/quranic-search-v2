@@ -25,7 +25,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'cd frontend \ npm'
+        cache: 'npm'
+        cache-dependency-path: |
+          cd frontend/package-lock.json
     - run:  |
         cd frontend
         npm ci
