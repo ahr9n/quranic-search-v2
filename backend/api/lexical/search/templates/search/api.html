@@ -9,23 +9,33 @@
     <body>
         <div class="container">
             <div class="row">
-                <a href="/api/lexical/all-verses">https://ahr9n-quran-api.herokuapp.com/api/all-verses</a>
-                <p>Returns all verses.</p>
+                <a href="/">http://localhost:8000/</a>
+                <p>This homepage of API DOCS.</p>
             </div>
 
             <div class="row">
-                <a href="/api/lexical/search-word/محمد">https://ahr9n-quran-api.herokuapp.com/api/search-word/{words}</a>
-                <p>Takes a string to return all verses, containing this string.</p>
+                <a href="/api/lexical/all">http://localhost:8000/api/lexical/all</a>
+                <p>Return all verses with all attributes.</p>
             </div>
 
             <div class="row">
-                <a href="/api/lexical/get-surah/1">https://ahr9n-quran-api.herokuapp.com/api/get-surah/{surah_id}</a>
-                <p>Takes Surah number, to return all verses in this Surah. Notice that Surah numbers is between 1 and 114.</p>
+                <a href="/api/lexical/search/محمد">http://localhost:8000/api/lexical/search/{words}</a>
+                <p>Take a string of words, to return all verses, containing this string.</p>
             </div>
 
             <div class="row">
-                <a href="/api/lexical/get-verse/1/1">https://ahr9n-quran-api.herokuapp.com/api/get-verse/{surah_id}/{verse_id}</a>
-                <p>Returns a specific verse by taking surah number and verse number.</p>
+                <a href="/api/lexical/surah/110">http://localhost:8000/api/lexical/surah/{surah_id}</a>
+                <p>Take a Surah number, to return all verses in this Surah. Notice that Surah numbers is between 1 and 114.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/verse-in-surah/2/2">http://localhost:8000/api/lexical/verse-in-surah/{surah_id}/{verse_id}</a>
+                <p>Take a Surah number with a Verse number in the Surah, to return the specific Verse.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/lexical/verse-in-quran/40">http://localhost:8000/api/lexical/verse-in-quran/{verse_id}</a>
+                <p>Take a Verse number in the whole Quarn, to return the specific Verse.</p>
             </div>
         </div>
     </body>
