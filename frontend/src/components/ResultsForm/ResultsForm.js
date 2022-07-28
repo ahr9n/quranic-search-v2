@@ -31,7 +31,7 @@ class ResultsForm extends Component {
         const input = this.state.value;
         // this.setState({search_type: 'lexical'});
         
-        fetch(`https://localhost:8000/api/laxical/search-word/${input}`)
+        fetch(`http://localhost:8000/api/lexical/search/${input}`)
         .then(response => response.json())
         .then(res => {
             console.log(res.data);
@@ -46,7 +46,7 @@ class ResultsForm extends Component {
         const input = this.state.value;
         // this.setState({search_type: 'semantic'});
 
-        fetch(`https://localhost:5000/api/semantic/similar-verse/${input}`)
+        fetch(`http://localhost:5000/api/semantic/similar-verse/${input}`)
         .then(response => response.json())
         .then(res => {
             console.log(res.results);

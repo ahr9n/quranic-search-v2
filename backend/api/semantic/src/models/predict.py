@@ -5,9 +5,11 @@ from .preprocess import get_quran_clean_text
 from .maximizing_methods import * 
 from .pooling import *
 
-model_ksucca = KeyedVectors.load("./references/model.pkl")
+# model_wiki = Word2Vec.load('./references/full_grams_cbow_100_wiki.mdl').wv 
 model_tw = Word2Vec.load('./references/full_grams_cbow_100_twitter.mdl').wv
-model_wiki = Word2Vec.load('./references/full_grams_cbow_300_wiki.mdl').wv
+# model_ksucca = KeyedVectors.load_word2vec_format('./data/processed/ksucca_full_cbow.bin', binary=True)
+# model_ksucca = KeyedVectors.load("./references/model.pkl")
+# model_fasttext = KeyedVectors.load_word2vec_format("./references/cc.ar.300.vec")
 
 quran_clean_text = get_quran_clean_text()
 
@@ -48,11 +50,11 @@ class MostSimilarVerse(Resource):
         @rtype: list of tuples (score, verse_id, verse)
         '''
         
-        results = get_most_similar_verses_by_query_text(query, model_tw , get_verse_max_score)
+        results = get_most_similar_verses_by_query_text(query, model_tw, get_verse_max_score)
 
         # Fixing: TypeError(Object of type float32 is not JSON serializable)
         for idx, (score, verse_id, verse) in enumerate(results):
-            tmp = (float(score), verse_id , verse)
+            tmp = (float(score), verse_id, verse)
             results[idx] = tmp
 
         return make_response(jsonify({'results': results}), 200)
