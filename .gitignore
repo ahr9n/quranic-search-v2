@@ -5,7 +5,6 @@ backend/api/lexical/search/__pycache__/
 backend/api/lexical/search/migrations/__pycache__/
 
 backend/api/semantic/data/external/quran_english_translations.txt
-backend/api/semantic/data/external/quran-simple-clean.txt
 backend/api/semantic/data/external/quran-simple-min.txt
 backend/api/semantic/data/external/quran-simple.txt
 backend/api/semantic/data/external/quran.txt
