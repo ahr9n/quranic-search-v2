@@ -1,4 +1,4 @@
-# Notebooks of Semantic Search
+# Jupyter Notebooks of Semantic Search
 
 Thanks to [Google Colaboratory Notebooks](https://colab.research.google.com/), we almost did all our work and development on it.
 
