@@ -1,9 +1,8 @@
-from .preprocess import clean_word, get_quran_clean_text
+from .preprocess import clean, get_quran_clean_text
 from pyarabic.araby import tokenize
 import numpy as np
 
 quran_clean_text = get_quran_clean_text()
-
 
 def get_max_pooling_vec(query_text, model):
     '''
@@ -11,24 +10,31 @@ def get_max_pooling_vec(query_text, model):
 
     @param query_text: list of words
     @type query_text: list
-    @param model: the model to use
+    @param model: tuple of the pre-trained model to use and its name
     @type model: Word2Vec or KeyedVectors
     @return: max pooling vector
     @rtype: numpy array
     '''
 
     # Warning: checkout the shape of the vectors
-    arr = [-1e9 for idx in range(100)]
-    # Avoid read-only error
-    max_pooling_vec = np.copy(np.array(arr))
-    
-    for query_word in query_text:
-        if query_word not in model:
+    arr = [-1e9 for idx in range(300)]
+    max_pooling_vec = np.copy(np.array(arr))  # avoid read-only error
+
+    (model_vectors, model_name) = model
+
+    for token in query_text:
+        cleaned = clean(token, model_name)
+        if len(cleaned):
+            cleaned = cleaned[0]
+        else:
+            cleaned = ''
+
+        if cleaned not in model_vectors:
             continue
-        model_vec = model[query_word]
-        for index in range(100):
-            max_pooling_vec[index] = max(
-                max_pooling_vec[index], model_vec[index])
+        
+        vec = model_vectors[cleaned]
+        for idx in range(300):
+            max_pooling_vec[idx] = max(max_pooling_vec[idx], vec[idx])
 
     return max_pooling_vec
 
@@ -39,27 +45,37 @@ def get_avg_pooling_vec(query_text, model):
 
     @param query_text: list of words
     @type query_text: list
-    @param model: the model to use
+    @param model: tuple of the pre-trained model to use and its name
     @type model: Word2Vec or KeyedVectors
     @return: average pooling vector
     @rtype: numpy array
     '''
 
     # Warning: checkout the shape of the vectors
-    arr = [0 for idx in range(100)]
-    # Avoid read-only error
-    avg_pooling_vec = np.copy(np.array(arr))
+    arr = [0 for idx in range(300)]
+    avg_pooling_vec = np.copy(np.array(arr))  # avoid read-only error
 
-    for query_word in query_text:
-        if query_word not in model:
-            continue
-        model_vec = model[query_word]
-        for index in range(100):
-            avg_pooling_vec[index] += model_vec[index]
+    cnt = 0
+    (model_vectors, model_name) = model
+    
+    for token in query_text:
+        cleaned = clean(token, model_name)
+        if len(cleaned):
+            cleaned = cleaned[0]
+        else:
+            cleaned = ''
+        
+        if cleaned not in model_vectors:
+            continue   
+        
+        cnt += 1
+        vec = model_vectors[cleaned]
+        for idx in range(300):
+            avg_pooling_vec[idx] += vec[idx]
 
-    for index in range(100):
-        avg_pooling_vec[index] /= len(query_text)
-
+    for idx in range(300):
+        avg_pooling_vec[idx] /= max(1, cnt)
+    
     return avg_pooling_vec
 
 
@@ -70,7 +86,7 @@ def get_pooling_results(query_text, model, method):
 
     @param query_text: list of words
     @type query_text: list
-    @param model: the model to use
+    @param model: tuple of the pre-trained model to use and its name
     @type model: Word2Vec or KeyedVectors
     @param method: the method to use
     @type method: function
@@ -78,7 +94,6 @@ def get_pooling_results(query_text, model, method):
     @rtype: list of tuples (score, verse_id, verse)
     '''
 
-    query_text = tokenize(clean_word(query_text))
     query_method_pooling_vec = method(query_text, model)
 
     verse_scores, verse_id = [], 0
@@ -89,7 +104,6 @@ def get_pooling_results(query_text, model, method):
 
         # score = model_vectors.similarity(query_max_pooling_vec, verse_max_pooling_vec)
         # will fail, because we generated new vectors that doesn't belong to any model
-
         verse_scores.append((cosine_similarity, verse_id))
         verse_id += 1
 
