@@ -10,11 +10,15 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-
   const [search_results, setSearchResults]= useState([]);
+
+  useEffect(() => {
+    document.title = "Quranic Search";
+  }, [])
+
   return (
     <Router>
       <div className='App'>
