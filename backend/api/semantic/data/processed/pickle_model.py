@@ -5,9 +5,8 @@ import pickle
 # Then, load the vectors directly from the file.
 
 # NOTE: You can use only 1m out of vectors loaded to speed up the model performance
-model = KeyedVectors.load_word2vec_format('./data/processed/ksucca_full_cbow.bin', binary=True, limit=1000)
+model = KeyedVectors.load_word2vec_format('ksucca_full_cbow.bin', binary=True, limit=100000)
 
 
 # Pickle the model
-
-model.save("./references/model.pkl")
+model.save("../../models/model.pkl")
