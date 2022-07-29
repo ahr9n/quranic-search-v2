@@ -51,7 +51,7 @@
 
 |                                               |                                               |
 |:---------------------------------------------:|:---------------------------------------------:|
-| ![landpage](/public/screenshots/landpage.png) | ![landpage](/public/screenshots/thevault.png) |
+| ![Home](/public/screenshots/home.png) | ![Results](/public/screenshots/results.png) |
 
 
 ## :microphone: What is Quranic Search
