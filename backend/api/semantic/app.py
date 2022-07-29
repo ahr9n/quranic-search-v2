@@ -1,10 +1,15 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 from flask_restful import Api
 # semantic/src/models/predict.py
 from src.models.predict import MostSimilarWord , MostSimilarVerse
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
+
+# This will enable CORS for all routes
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 api = Api(app)
 
