@@ -45,53 +45,69 @@
 
 ## :tada: About the Project
 
-`Quranic Search` stands for lexical and semantic search in the Holy Quran.
+Retrieving information from the Holy Quran is an important field for Quran scholars, Muslim researchers, and Arabic enthusiasts in general. There are two popular types of Quran searching techniques: lexical or keyword-based and semantic or concept-based that is a challenging task, especially in a complex corpus such as the Holy Quran. `Quranic Search` stands for lexical and semantic search in the Holy Quran.
 
 ### :camera: Screenshots
 
-|                                               |                                               |
-|:---------------------------------------------:|:---------------------------------------------:|
+|                                       |                                             |
+|:-------------------------------------:|:-------------------------------------------:|
 | ![Home](/assets/screenshots/home.png) | ![Results](/assets/screenshots/results.png) |
 
 
 ## :microphone: What is Quranic Search
 
-Quranic Search is developed to help all people, especially Muslims to deal with the Holy Quran easier and faster, allowing them to search in the Holy Quran for specific Verses, by a key-word or a conceptual topic.
+Quranic Search is developed to help all people, especially Muslims to deal with the Holy Quran easier and faster, allowing them to search in the Holy Quran for specific Verses, by a keyword or a conceptual topic.
 
 ### :mag: Why Quranic Search
+
+The Holy Quran is considered the primary reference to approximately 1.6 billion Muslims around the world and as the leading resource for classical Arabic language. Muslims, as well as non-Muslims, need to search for certain information from the Holy Quran or retrieve verses that discuss a specific topic, having various topics to discuss, for example; ethics, Islamic law, marital and family law, monetary transactions, morals, and the relationship between Islam/Muslims and other world religions.
 
 #### :-1: The Problem with Traditional Lexical Search
 
 *   Incomplete results using key-words
-*   Lexical search is not based on meaning of the search query
+*   Lexical search is not based on the meaning of the search query
 
 #### :+1: The Solution with Semantic Search
 
-*   Relevant verses based on meaning
-*   Best ranking of the most similar verses
+*   Relevant verses based on meaning, improving the accuracy of search
+*   Best ranking of the most similar verses, based on Word Embedding Representation
 
 #### :see\_no\_evil: Features
 
 *   Natural Language Processing based
-*   Using of the best pre-trained word2vec models
-*   Building a sentence embedding model based on word2vec
+*   Displaying the first 50 results based on the best ranking
+*   Using the best pre-trained Word2Vec models
+*   Building a sentence embedding model based on Word2Vec (CBOW Architecture)
+*   Using different methods to represent the sentence vector
+    *   Max similarity score between two words (A word in a query and a word in a Verse)
+    *   Max frequency score of a specific similarity (0.3) between two words
+    *   Average similarity score between two words
+    *   Pooling; max pooling and average pooling
+*   Preprocessing of the queries is done based on the preprocessing of models' training to o seek the best comparison of vectors
+*   Working first on the single word level
+    *   Then we iterated over the whole query and sentence, maximizing all Verses words with the results by summing up the result of the method for every two words (in a query and a verse), to finally compare with the whole document of the Holy Quran text.
+*   Combining methods results and models to get the best results
 *   Fast with low cost, unlike using Transformers
 *   Open-source
 
 ### :closed\_lock\_with\_key: How Quranic Search Works
 
-Verses are shown lexographically by Surah number and the Verse number in the Surah
-
 **When you make a lexical search:**
 
-*   Lexical Search API interacts with the UI
-*   Verses are retrieved based on the sequence of key-words using the Lexical Search API
+*   Lexical Search Django API interacts with the React UI
+*   Verses are retrieved based on the sequence of keywords using the Lexical Search API
+*   Verses are displayed in the results page lexicographically by Surah number and the Verse number in the Surah
 
 **When you make a semantic search:**
 
 *   Semantic Search API interacts with the UI
 *   Verses IDs are retrieved based on the meaning/topic of words using the Semantic Search API
-*   Verses all props are retrieved from the Lexical Search API
+*   A set of Word2Vec pre-trained models are used to get the word vectors of the words of Verses and search queries
+*   Computing sentence vectors is done using the several methods
+    *   Combining the results of all methods by all models
+*   Verses are retrieved based on the similarity score between the query and the verse
+*   Computing distances by cosine similarity to retrieve the most similar verses
+*   Verses' all props are retrieved from the Lexical Search API
 
 ### :hammer\_and\_wrench: Tech Stack and Tools
 
@@ -99,12 +115,12 @@ The tools used in this project.
 
 |                                                                       | Tool                                                 | Description                             |
 |:---------------------------------------------------------------------:|:----------------------------------------------------:|:---------------------------------------:|
-| <img src="/assets/tools/vscode.png" width="32px" height="32px" />     | [Visual Studio Code](https://code.visualstudio.com/) | IDE                                     |
-| <img src="/assets/tools/reactdotjs.png" width="32px" height="32px" /> | [React.js](https://reactjs.org/)                     | Frontend framework                      |
-| <img src="/assets/tools/django.png" width="32px" height="32px" />     | [django](https://www.djangoproject.com/)             | Lexical Search Backend Framework        |
-| <img src="/assets/tools/flask.png" width="32px" height="32px" />      | [Flask](https://flask.palletsprojects.com/en/2.1.x/) | Semantic Search API Backend Framework   |
-| <img src="/assets/tools/gensim.png" width="32px" height="32px" />     | [Gensim](https://radimrehurek.com/gensim/)           | Topic Modeling (Word2Vec, KeyedVectors) |
-| <img src="/assets/tools/sqlite3.png" width="32px" height="32px" />    | [SQLite3](https://www.sqlite.org/)                   | For the Holy Quran Database             |
+| <img src="/assets/tools/vscode.png" width="40px" height="32px" />     | [Visual Studio Code](https://code.visualstudio.com/) | IDE                                     |
+| <img src="/assets/tools/reactdotjs.png" width="40px" height="32px" /> | [React.js](https://reactjs.org/)                     | Frontend framework                      |
+| <img src="/assets/tools/django.png" width="42px" height="32px" />     | [django](https://www.djangoproject.com/)             | Lexical Search Backend Framework        |
+| <img src="/assets/tools/flask.png" width="45px" height="32px" />      | [Flask](https://flask.palletsprojects.com/en/2.1.x/) | Semantic Search API Backend Framework   |
+| <img src="/assets/tools/gensim.png" width="45px" height="32px" />     | [Gensim](https://radimrehurek.com/gensim/)           | Topic Modeling (Word2Vec, KeyedVectors) |
+| <img src="/assets/tools/sqlite3.png" width="45px" height="32px" />    | [SQLite3](https://www.sqlite.org/)                   | For the Holy Quran Database             |
 
 ## :ladder: Source Code Directory Structure
 
@@ -118,7 +134,7 @@ quranic-search-v2
 ├── backend                                     
 │   ├── api
 │   │   ├── lexical
-│   │   │   ├── api/                            <- Lexical django project with settings
+│   │   │   ├── api/                            <- Lexical Django project with settings
 │   │   │   ├── db/                             <- Used databases in the project
 │   │   │   ├── search/                         <- Search application (static, templates, models, serializers, urls, views, tests, ..etc) 
 │   │   │   ├── db.sqlite3                      <- Migrated database
@@ -126,17 +142,17 @@ quranic-search-v2
 │   │   │   └── requirements.txt                <- All needed for installing the lexical search API
 │   │   └── semantic
 │   │       ├── data                    
-│   │       │   ├── external/                   <- Data from third party sources
+│   │       │   ├── external/                   <- Data from third-party sources
 │   │       │   └── processed/                  <- The final, canonical data sets for modeling
 │   │       ├── models/                         <- Trained and serialized models, model predictions, or model summaries
 │   │       ├── notebooks/                      <- All Jupyter notebooks
 │   │       ├── src                             <- Source code for use in this project
-|   │       |   ├── __init__.py                 <- Makes src a Python module
-|   │       │   └── models                      <- Scripts to train models and then use trained models to make predictions
-|   │       │       ├── pooling.py              <- Pooling algorithms for sentence embeddings
-|   │       │       ├── predict.py              <- Resources of the semantic search API
-|   │       │       ├── preprocess.py           <- The frequent preprocessing methods 
-|   │       │       └── semantic_methods.py     <- The semantic (word/sentence) search methods
+│   │       │   ├── __init__.py                 <- Makes src a Python module
+│   │       │   └── models                      <- Scripts to train models and then use trained models to make predictions
+│   │       │       ├── pooling.py              <- Pooling algorithms for sentence embeddings
+│   │       │       ├── predict.py              <- Resources of the semantic search API
+│   │       │       ├── preprocess.py           <- The frequent preprocessing methods 
+│   │       │       └── semantic_methods.py     <- The semantic (word/sentence) search methods
 │   │       ├── app.py                          <- The Flask application (entry point)
 │   │       └── requirements.txt                <- All needed for installing the semantic search API
 │   └── run.sh                                  <- Bootstrapping script to run the APIs
@@ -174,8 +190,8 @@ quranic-search-v2
 │   │   ├── index.js                            <- The root application file
 │   │   ├── reportWebVitals.js                  <- WebVitals reporting script
 │   │   └── setupTests.js                       <- Setup script for testing
-|   ├── package-lock.json                       <- Used to install dependencies
-|   └── package.json                            <- Used to install dependencies
+│   ├── package-lock.json                       <- Used to install dependencies
+│   └── package.json                            <- Used to install dependencies
 ├── .github  
 │   └── workflows                               <- GitHub Actions workflows
 │       ├── django.yml
