@@ -50,7 +50,7 @@ class MostSimilarVerse(Resource):
         @rtype: list of tuples (score, verse_id, verse)
         '''
         
-        results = get_most_similar_verses_by_query_text(query, model_tw, get_verse_max_score)
+        results = get_most_similar_verses_by_query_text(query, (model_tw, 'TWITTER'), get_verse_max_score)
 
         # Fixing: TypeError(Object of type float32 is not JSON serializable)
         for idx, (score, verse_id, verse) in enumerate(results):
