@@ -34,6 +34,7 @@ class ResultsForm extends Component {
         fetch(`http://localhost:8000/api/lexical/search/${input}`)
         .then(response => response.json())
         .then(res => {
+            console.log(res);
             console.log(res.data);
             this.props.setSearchResults(res.data);
         })
@@ -48,10 +49,21 @@ class ResultsForm extends Component {
 
         fetch(`http://localhost:5000/api/semantic/similar-verse/${input}`)
         .then(response => response.json())
-        .then(res => {
-            console.log(res.results);
-            this.props.setSearchResults(res.results);
-        })        
+        .then(res1 => {
+            res1 = res1.results;
+            console.log(res1.length);
+
+            var output = [];
+            for (let i = 0; i < res1.length; i++) {
+                fetch(`http://localhost:8000/api/lexical/verse-in-quran/${res1[i][1]}`)
+                .then(response => response.json())
+                .then(res2 => {
+                    output.push(res2.data);
+                    this.props.setSearchResults(output);
+                    this.props.navigate("/results");
+                })
+            }
+        })      
     }
 
   render() {
