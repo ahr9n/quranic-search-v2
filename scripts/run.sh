@@ -3,9 +3,13 @@
 cat /dev/null > logger.log
 
 # Run the lexical/semantic API locally
-python3 backend/api/lexical/manage.py runserver | tee logger.log &
-python3 backend/api/semantic/app.py | tee logger.log &
+cd backend/api/lexical || exit
+python3 manage.py runserver >> ../../../logger.log 2>&1 &
+cd ../semantic || exit
+pwd
+python3 app.py >> ../../../logger.log 2>&1 &
 
 # Run the website frontend locally
+cd ../../../ || exit
 cd frontend || exit
 npm start

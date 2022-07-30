@@ -5,7 +5,8 @@ python3 -m pip install --upgrade pip
 
 # Download the pre-trained models (AraVec cbow_100_twitter for now)
 cd backend/api/semantic/models || exit
-if ! [[ -f ./full_grams_cbow_100_twitter.zip ]]; then
+
+if [[ -z "$(ls -A -I 'README.md' -I '.gitignore' ./)" ]]; then
 	wget https://bakrianoo.ewr1.vultrobjects.com/aravec/full_grams_cbow_100_twitter.zip
 	unzip full_grams_cbow_100_twitter.zip
 fi
