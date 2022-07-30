@@ -1,5 +1,5 @@
 <div align="center">
- <img style="width: 35%; mix-blend-mode: multiply;" src="https://user-images.githubusercontent.com/52632898/181664653-e2a64fb2-35f2-47d3-8af6-8451d3fbe305.png" alt="Quranic Search">
+ <img style="width: 50%; mix-blend-mode: multiply;" src="https://user-images.githubusercontent.com/52632898/181664653-e2a64fb2-35f2-47d3-8af6-8451d3fbe305.png" alt="Quranic Search">
 </div>
 
 <h1 align="center">Quranic Lexical/Semantic Search</h1>
@@ -24,23 +24,17 @@
 
 *   [About the Project](#tada-about-the-project)
     *   [Screenshots](#camera-screenshots)
-    *   [What is Quranic Search](#microphone-what-is-devault)
-    *   [Why Quranic Search](#mag-why-devault)
-        *   [The Problem with Traditional Lexical Search](#-1-the-problem-with-traditional-cloud-storage)
-        *   [Solution with Semantic Search](#1-the-solution-with-devault)
+    *   [What is Quranic Search](#microphone-what-is-quranic-search)
+    *   [Why Quranic Search](#mag-why-quranic-search)
+        *   [The Problem with Traditional Lexical Search](#1-the-problem-with-traditional-lexical-search)
+        *   [The Solution with Semantic Search](#1-the-solution-with-semantic-search)
         *   [Features](#see_no_evil-features)
-    *   [How Quranic Search Works](#closed_lock_with_key-how-devault-works)
+    *   [How Quranic Search Works](#closed_lock_with_key-how-quranic-search-works)
     *   [Tech stack and Tools](#hammer_and_wrench-tech-stack-and-tools)
 *   [Source Code Directory Structure](#ladder-source-code-directory-structure)
 *   [Getting Started](#biking_man-getting-started)
     *   [Prerequisites](#yellow_circle-prerequisites)
-        *   [Package Manager](#package-package-manager)
     *   [Run for Development](#wrench-run-for-development)
-        *   [Run the Tests](#syringe-run-the-tests)
-*   [Usage](#thinking-usage)
-*   [FAQ](#bulb-faq)
-*   [Future Work](#rescue_worker_helmet-future-work)
-*   [Contributors](#hatching_chick-contributors)
 *   [License](#warning-license)
 
 ## :tada: About the Project
@@ -197,6 +191,43 @@ quranic-search-v2
 │       ├── django.yml
 │       └── node.js.yml
 └── .gitignore
+```
+
+## :biking\_man: Getting Started
+
+### :yellow\_circle: Prerequisites
+
+This project uses multiple pre-trained models, besides the requirements to run (backend/frontend). You can start by using the helper scripts to download a light model and install all requirements, before running:
+
+```sh
+sh scripts/start.sh
+```
+
+### :wrench: Run for Development
+
+*   Clone this repository
+
+```sh
+git clone https://github.com/ahr9n/quranic-search-v2.git
+cd quranic-search-v2
+```
+
+:red\_circle: *All commands must be executed in the root of the project.*
+
+*   Run all services (lexical API, semantic API, then frontend)
+
+```sh
+sh scripts/run.sh
+```
+
+*   Navigate to `http://localhost:3000` <br/>
+
+:green\_circle: *Now you are good to go!*
+
+:red\_circle: *Notice that all servers shall be running in the background using the scripts, so you can close all of them using the following command:*
+
+```sh
+sh scripts/down.sh
 ```
 
 ## :warning: License
