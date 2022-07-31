@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import *
 
-app_name = 'QuranLexicalSearchAPI'
+app_name = 'Quranic Lexical Search API'
 
 urlpatterns = [
     # API views

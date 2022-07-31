@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Verses, Surah
 
-admin.site.site_header = 'Quran Search'
-admin.site.site_title = 'Quran Search'
+admin.site.site_header = 'Quranic Lexical Search API'
+admin.site.site_title = 'Quranic Lexical Search API'
 
 
 # Register your models here.
