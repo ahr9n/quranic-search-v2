@@ -1,3 +1,4 @@
+from requests import get
 from flask import jsonify, make_response
 from flask_restful import Resource
 from gensim.models import KeyedVectors, Word2Vec
@@ -13,6 +14,15 @@ model_tw = Word2Vec.load('././models/full_grams_cbow_100_twitter.mdl').wv
 
 quran_clean_text = get_quran_clean_text()
 
+def fetch(verse_ids):
+    output = []
+    for id in verse_ids:
+        url = f"http://localhost:8000/api/lexical/verse-in-quran/{id}"
+        headers = {'content-type': 'application/json'}
+        results = get(url, headers=headers)
+        results = results.json()
+        output.append(results['data'])
+    return output
 
 class MostSimilarWord(Resource):
 
@@ -57,4 +67,9 @@ class MostSimilarVerse(Resource):
             tmp = (float(score), verse_id, verse)
             results[idx] = tmp
 
-        return make_response(jsonify({'results': results}), 200)
+        print(results[:3])
+
+        results = [verse_id+1 for score, verse_id, verse in results]
+        results = fetch(results)
+
+        return make_response(jsonify({'length': len(results), 'data': results}), 200)
