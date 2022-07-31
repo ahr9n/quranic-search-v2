@@ -1,0 +1,46 @@
+version: "3.5"
+services:
+  lexical-service:
+    build: backend/api/lexical
+    env_file: .env
+    container_name: ${BACKEND_CONTAINER_NAME}
+    volumes:
+      - ./backend/api/lexical:/backend/api/lexical
+    command: sh scripts/entrypoint.sh
+    ports:
+      - ${BACKEND_APP_PORT}:8080 # exposed without the proxy
+    networks:
+      - app-network
+
+  semantic-service:
+    build: backend/api/semantic
+    env_file: .env
+    container_name: ${BACKEND_CONTAINER_NAME}
+    volumes:
+      - ./backend/api/semantic:/backend/api/semantic
+    command: sh scripts/entrypoint.sh
+    ports:
+      - ${BACKEND_APP_PORT}:8080
+    depends_on:
+      - lexical-service
+    networks:
+      - app-network
+
+  frontend:
+    build: frontend
+    container_name: ${FRONTEND_CONTAINER_NAME}
+    restart: always
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - ${FRONTEND_APP_PORT}:3000
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    name: ${DOCKER_NETWORK_NAME}
+    external: true
+    driver: bridge
+
