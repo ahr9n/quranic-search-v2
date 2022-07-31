@@ -2,12 +2,6 @@ from gensim.models import KeyedVectors, Word2Vec
 from pyarabic.araby import tokenize
 from .preprocess import clean, get_quran_clean_text
 
-# model_wiki = Word2Vec.load('../../models/full_grams_cbow_100_wiki.mdl').wv
-model_tw = Word2Vec.load('models/full_grams_cbow_100_twitter.mdl').wv
-# model_ksucca = KeyedVectors.load_word2vec_format('../../data/processed/ksucca_full_cbow.bin', binary=True)
-# model_ksucca = KeyedVectors.load("../../models/model.pkl")
-# model_fasttext = KeyedVectors.load_word2vec_format("../../models/cc.ar.300.vec")
-
 quran_clean_text = get_quran_clean_text()
 
 def get_verse_max_score(query_word, verse_text, model):
@@ -220,6 +214,12 @@ def get_combined_models_results(query_text, method):
     @return: most similar verses
     @rtype: list of tuples (score, verse_id, verse_text)
     '''
+
+    model_wiki = Word2Vec.load('../../models/full_grams_cbow_300_wiki.mdl').wv
+    model_tw = Word2Vec.load('../../models/full_grams_cbow_300_twitter.mdl').wv
+    model_ksucca = KeyedVectors.load_word2vec_format('../../data/processed/ksucca_full_cbow.bin', binary=True)
+    model_ksucca = KeyedVectors.load("../../models/model.pkl")
+    model_fasttext = KeyedVectors.load_word2vec_format("../../models/cc.ar.300.vec")
 
     verse2score = {}
     for model in [(model_wiki, 'WIKI'), (model_tw, 'TWITTER'), (model_ksucca, 'KSUCCA'), (model_fasttext, 'FASTTEXT')]:

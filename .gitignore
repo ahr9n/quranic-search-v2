@@ -12,6 +12,8 @@ backend/api/semantic/data/processed/ksucca_full_cbow.bin
 backend/api/semantic/models/full_grams_cbow_100_twitter.mdl
 backend/api/semantic/models/full_grams_cbow_100_twitter.mdl.trainables.syn1neg.npy
 backend/api/semantic/models/full_grams_cbow_100_twitter.mdl.wv.vectors.npy
+backend/api/semantic/models/model.pkl
+backend/api/semantic/models/model.pkl.vectors.npy
 backend/api/semantic/src/__pycache__/
 backend/api/semantic/src/models/__pycache__/
 

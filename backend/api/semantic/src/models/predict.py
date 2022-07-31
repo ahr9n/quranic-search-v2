@@ -6,11 +6,11 @@ from .preprocess import *
 from .semantic_methods import * 
 from .pooling import *
 
-# model_wiki = Word2Vec.load('././models/full_grams_cbow_100_wiki.mdl').wv 
-model_tw = Word2Vec.load('././models/full_grams_cbow_100_twitter.mdl').wv
-# model_ksucca = KeyedVectors.load_word2vec_format('././data/processed/ksucca_full_cbow.bin', binary=True)
-# model_ksucca = KeyedVectors.load("././models/model.pkl")
-# model_fasttext = KeyedVectors.load_word2vec_format("././models/cc.ar.300.vec")
+# model_wiki = Word2Vec.load('../../models/full_grams_cbow_300_wiki.mdl').wv 
+# model_tw = Word2Vec.load('../../models/full_grams_cbow_300_twitter.mdl').wv
+# model_ksucca = KeyedVectors.load_word2vec_format('../../data/processed/ksucca_full_cbow.bin', binary=True)
+model_ksucca = KeyedVectors.load("../../models/model.pkl")
+# model_fasttext = KeyedVectors.load_word2vec_format("../../models/cc.ar.300.vec")
 
 quran_clean_text = get_quran_clean_text()
 
@@ -36,7 +36,7 @@ class MostSimilarWord(Resource):
         @rtype: list of tuples (score, word)
         '''
 
-        word = clean(word, 'TWITTER')
+        word = clean(word, 'KSUCCA')
         if len(word):
             word = word[0]
         else:
@@ -45,9 +45,9 @@ class MostSimilarWord(Resource):
         word_scores = []
         for verse_text in quran_clean_text:
             for verse_word in verse_text.split():
-                cleaned_verse_word = clean(verse_word, 'TWITTER')[0]
-                if cleaned_verse_word in model_tw and word in model_tw and cleaned_verse_word != word:
-                    score = model_tw.similarity(word, cleaned_verse_word)
+                cleaned_verse_word = clean(verse_word, 'KSUCCA')[0]
+                if cleaned_verse_word in model_ksucca and word in model_ksucca and cleaned_verse_word != word:
+                    score = model_ksucca.similarity(word, cleaned_verse_word)
                     word_scores.append((score, verse_word))
         word_scores.sort(reverse=True)
 
@@ -73,7 +73,7 @@ class MostSimilarVerse(Resource):
         @rtype: list of tuples (score, verse_id, verse)
         '''
         
-        results = get_most_similar_verses_by_query_text(query, (model_tw, 'TWITTER'), get_verse_max_score)
+        results = get_most_similar_verses_by_query_text(query, (model_ksucca, 'KSUCCA'), get_verse_max_score)
 
         # Fixing: TypeError(Object of type float32 is not JSON serializable)
         for idx, (score, verse_id, verse) in enumerate(results):
