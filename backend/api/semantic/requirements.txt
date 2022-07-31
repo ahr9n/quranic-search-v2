@@ -1,3 +1,4 @@
+requests
 Flask
 flask_cors
 flask_restful
