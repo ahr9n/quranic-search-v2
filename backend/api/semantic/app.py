@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS, cross_origin
 from flask_restful import Api
 # semantic/src/models/predict.py
@@ -13,10 +13,13 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 api = Api(app)
 
+@app.route('/')
+def index():
+    return render_template('api.html')
+
 # routes to apis 
 api.add_resource(MostSimilarWord, '/api/semantic/similar-word/<string:word>')
 api.add_resource(MostSimilarVerse, '/api/semantic/similar-verse/<string:query>')
-
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

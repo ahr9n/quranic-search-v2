@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quranic Semantic Search API</title>
+        <link href="/./static/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <a href="/">http://localhost:5000/</a>
+                <p>This homepage of Quranic Semantic Search API DOCS.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/semantic/similar-word/حميد">http://localhost:5000/api/semantic/similar-word/{word}</a>
+                <p>Take a string of a single word, to return the first 100 most similar words, containing the meaning of the given word.</p>
+            </div>
+
+            <div class="row">
+                <a href="/api/semantic/similar-verse/الوفاء بالعهد">http://localhost:5000/api/semantic/similar-verse/{query}</a>
+                <p>Take a query (string of one or more words), to return the first 50 most similar verses from the Holy Quran, containing the meaning of the given query.</p>
+                <p>Note: You must run the lexical search API first, as the results of verses properties are retrieved from the lexical search API by the verses IDs from the semantic search API.</p>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
