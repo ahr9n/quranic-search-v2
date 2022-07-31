@@ -2,7 +2,7 @@ from requests import get
 from flask import jsonify, make_response
 from flask_restful import Resource
 from gensim.models import KeyedVectors, Word2Vec
-from .preprocess import get_quran_clean_text
+from .preprocess import *
 from .semantic_methods import * 
 from .pooling import *
 
@@ -36,15 +36,28 @@ class MostSimilarWord(Resource):
         @rtype: list of tuples (score, word)
         '''
 
+        word = clean(word, 'TWITTER')
+        if len(word):
+            word = word[0]
+        else:
+            return make_response(jsonify({'error': 'No word provided'}), 400)
+
         word_scores = []
-        for verse in quran_clean_text:
-            for word in verse.split():
-                if word not in model_tw:
-                    score = model_tw.similarity(word, verse)
-                    word_scores.append((score, word))
+        for verse_text in quran_clean_text:
+            for verse_word in verse_text.split():
+                cleaned_verse_word = clean(verse_word, 'TWITTER')[0]
+                if cleaned_verse_word in model_tw and word in model_tw and cleaned_verse_word != word:
+                    score = model_tw.similarity(word, cleaned_verse_word)
+                    word_scores.append((score, verse_word))
         word_scores.sort(reverse=True)
 
         out = word_scores[:min(len(word_scores), 100)]
+
+        # Fixing: TypeError(Object of type float32 is not JSON serializable)
+        for idx, (score, verse_word) in enumerate(out):
+            tmp = (float(score), verse_word)
+            out[idx] = tmp
+
         return make_response(jsonify({'results': out}), 200)
 
 
