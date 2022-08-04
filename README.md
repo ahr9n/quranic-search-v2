@@ -230,6 +230,19 @@ sh scripts/run.sh
 sh scripts/down.sh
 ```
 
+## :hatching\_chick: Contributors
+
+<table>
+  <tr>
+    <td align="center">
+        <a href="https://github.com/OmarShamkh">
+        <img src="https://avatars.githubusercontent.com/u/44472968?v=3?s=100" width="100px;" alt="OmarShamkh"/><br />
+            <sub><b>Omar Shamkh</b></sub>
+        </a>
+    </td>
+  </tr>
+</table>
+
 ## :warning: License
 
 Licensed under the [GPL-v3](LICENSE) License.
