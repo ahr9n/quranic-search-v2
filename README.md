@@ -231,15 +231,13 @@ sh scripts/down.sh
 ```
 
 ## :hatching\_chick: Contributors
-
 <table>
   <tr>
-    <td align="center">
-        <a href="https://github.com/OmarShamkh">
-        <img src="https://avatars.githubusercontent.com/u/44472968?v=3?s=100" width="100px;" alt="OmarShamkh"/><br />
-            <sub><b>Omar Shamkh</b></sub>
-        </a>
-    </td>
+    <td align="center"><a href="https://github.com/OmarShamkh"><img src="https://avatars.githubusercontent.com/u/44472968?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Omar Shamkh</b></sub></a><br /><a href="https://github.com/ahr9n/quranic-search-v2/commits?author=OmarShamkh">💻</a></td>
+    <td align="center"><a href="https://github.com/mograby3500"><img src="https://avatars.githubusercontent.com/u/25778262?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ahmad Almaghraby</b></sub></a><br /><a href="https://github.com/ahr9n/quranic-search-v2/commits?author=mograby3500">💻</a></td>
+    <td align="center"><a href="https://github.com/ahr9n"><img src="https://avatars.githubusercontent.com/u/52632898?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ahmad Abdulrahman</b></sub></a><br /><a href="https://github.com/ahr9n/quranic-search-v2/commits?author=ahr9n">💻</a></td>
+    <td align="center"><a href="https://github.com/AbdeltwabMF"><img src="https://avatars.githubusercontent.com/u/55063723?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Abd El-Twab M. Fakhry</b></sub></a><br /><a href="https://github.com/ahr9n/quranic-search-v2/commits?author=AbdeltwabMF">💻</a></td>
+    <td align="center"><a href="https://github.com/ahmadateya"><img src="https://avatars.githubusercontent.com/u/32394857?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ahmad Ateya</b></sub></a><br /><a href="https://github.com/ahr9n/quranic-search-v2/commits?author=ahmedateya">💻</a></td>
   </tr>
 </table>
 
