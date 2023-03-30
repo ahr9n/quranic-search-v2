@@ -41,6 +41,6 @@
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.18.9",
     "babel-loader": "^8.2.5",
-    "webpack": "^5.74.0"
+    "webpack": "^5.77.0"
   }
 }
